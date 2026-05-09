@@ -1,0 +1,139 @@
+export default function FoodieWebsite() {
+  const foods = [
+    {
+      name: "Cheesy Burger",
+      price: "RM12",
+      image:
+        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      name: "Creamy Pasta",
+      price: "RM15",
+      image:
+        "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      name: "Fresh Matcha",
+      price: "RM8",
+      image:
+        "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-orange-50 font-sans text-gray-800">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-8 py-5 bg-white shadow-md sticky top-0 z-50">
+        <h1 className="text-3xl font-extrabold text-orange-500">
+          FoodieGo
+        </h1>
+
+        <div className="flex gap-6 text-lg font-medium">
+          <a href="#menu" className="hover:text-orange-500 transition">
+            Menu
+          </a>
+          <a href="#about" className="hover:text-orange-500 transition">
+            About
+          </a>
+          <a href="#contact" className="hover:text-orange-500 transition">
+            Contact
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="grid md:grid-cols-2 gap-10 items-center px-8 md:px-20 py-16">
+        <div>
+          <h2 className="text-5xl md:text-6xl font-black leading-tight">
+            Delicious Food
+            <span className="text-orange-500"> Delivered Fast</span>
+          </h2>
+
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            Discover tasty meals, refreshing drinks, and your favourite snacks
+            all in one food app.
+          </p>
+
+          <button className="mt-8 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white text-lg rounded-2xl shadow-lg transition">
+            Order Now
+          </button>
+        </div>
+
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop"
+            alt="Food"
+            className="rounded-3xl shadow-2xl h-[420px] w-full object-cover"
+          />
+        </div>
+      </section>
+
+      {/* Menu Section */}
+      <section id="menu" className="px-8 md:px-20 py-16">
+        <h3 className="text-4xl font-bold text-center mb-12">
+          Popular Menu
+        </h3>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {foods.map((food, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl shadow-lg overflow-hidden hover:scale-105 transition duration-300"
+            >
+              <img
+                src={food.image}
+                alt={food.name}
+                className="h-56 w-full object-cover"
+              />
+
+              <div className="p-6">
+                <h4 className="text-2xl font-bold">{food.name}</h4>
+                <p className="text-orange-500 text-xl mt-2 font-semibold">
+                  {food.price}
+                </p>
+
+                <button className="mt-5 w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-2xl transition">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section
+        id="about"
+        className="px-8 md:px-20 py-16 bg-white text-center"
+      >
+        <h3 className="text-4xl font-bold mb-6">About FoodieGo</h3>
+
+        <p className="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+          FoodieGo is a modern food app website designed to make ordering food
+          easy, fun, and fast. Browse menus, explore new flavours, and enjoy
+          your meals anytime.
+        </p>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="px-8 md:px-20 py-16">
+        <div className="bg-orange-500 rounded-3xl p-10 text-center text-white shadow-xl">
+          <h3 className="text-4xl font-bold">Get In Touch</h3>
+
+          <p className="mt-4 text-lg">
+            Email: foodiego@gmail.com
+          </p>
+
+          <button className="mt-6 px-8 py-4 bg-white text-orange-500 font-bold rounded-2xl hover:scale-105 transition">
+            Contact Us
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white text-center py-6 text-gray-500 border-t">
+        © 2026 FoodieGo. All rights reserved.
+      </footer>
+    </div>
+  );
+}
